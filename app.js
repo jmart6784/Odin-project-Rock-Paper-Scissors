@@ -25,8 +25,9 @@ function playerSelection(ques, x, y, z) {
   } else if (ques == 'scissors') {
     console.log('player chose scissors')
     return(z)
-  } else if (ques == '') {
+  } else if (ques !== 'rock' || 'paper' || 'scissors') {
     console.log("player didn't make a choice")
+    alert('Make up your mind')
   }
 };
 
@@ -34,18 +35,25 @@ function playerSelection(ques, x, y, z) {
 function playRound(playerDec, compDec) {
   if (playerDec === compDec) {
     console.log("It's a draw")
+    alert("It's a draw")
   } else if (playerDec == 'rock' && compDec == 'scissors') {
     console.log('player win')
+    alert('You won!')
   } else if (playerDec == 'paper' && compDec == 'rock') {
     console.log('player win')
+    alert('You won!')
   } else if (playerDec == 'scissors' && compDec == 'rock') {
-    console.log('player win');
+    console.log('player win')
+    alert('You won!')
   } else if (playerDec == 'scissors' && compDec == 'rock') {
     console.log('computer win')
+    alert('You lose!')
   } else if (playerDec == 'rock' && compDec == 'paper') {
     console.log('computer win')
+    alert('You lose!')
   } else if (playerDec == 'paper' && compDec == 'scissors') {
     console.log('computer win')
+    alert('You lose!')
   }
 }
 
