@@ -1,29 +1,56 @@
-let options = ['rock', 'paper', 'scissors'];
-let playerOpt1 = document.getElementById('rock');
-let playerOpt2 = document.getElementById('paper');
-let playerOpt3 = document.getElementById('scissors');
-// let button = document.getElementById('btn').addEventListener('click');
+let array = ['rock', 'paper', 'scissors'];
+let x = 'rock';
+let y = 'paper';
+let z = 'scissors';
+let ques = window.prompt('What will it be? Rock, Paper, or Scissors?').toLowerCase();
+let compDec = computerPlay();
+let playerDec = playerSelection(ques, x, y, z);
 
 // Computer randomized choice
 function computerPlay() {
-  return options[Math.floor(Math.random() * options.length)];
+  return array[Math.floor(Math.random() * array.length)];
 }
 function computerSelection() {
   computerPlay().trigger('click');
 }
 
 // Player's choice
-function playerSelection(playerChose, playerOpt1, playerOpt2, playerOpt3) {
-  if (playerOpt1) {
-    console.log('chose rock');
-  } else if (playerOpt2) {
-    console.log('chose paper');
-  } else if (playerOpt3) {
-    console.log('chose scissors');
-  } else {
-    playerChose == undefined
+function playerSelection(ques, x, y, z) {
+  if (ques == 'rock') {
+    console.log('player chose rock')
+    return(x)
+  } else if (ques == 'paper') {
+    console.log('player chose paper')
+    return(y)
+  } else if (ques == 'scissors') {
+    console.log('player chose scissors')
+    return(z)
+  } else if (ques == '') {
+    console.log("player didn't make a choice")
   }
-    
+};
+
+// Compare choices
+function playRound(playerDec, compDec) {
+  if (playerDec === compDec) {
+    console.log("It's a draw")
+  } else if (playerDec == 'rock' && compDec == 'scissors') {
+    console.log('player win')
+  } else if (playerDec == 'paper' && compDec == 'rock') {
+    console.log('player win')
+  } else if (playerDec == 'scissors' && compDec == 'rock') {
+    console.log('player win');
+  } else if (playerDec == 'scissors' && compDec == 'rock') {
+    console.log('computer win')
+  } else if (playerDec == 'rock' && compDec == 'paper') {
+    console.log('computer win')
+  } else if (playerDec == 'paper' && compDec == 'scissors') {
+    console.log('computer win')
+  }
 }
 
-console.log(playerSelection())
+console.log(playerDec);
+
+console.log(compDec);
+
+console.log(playRound(playerDec, compDec));
